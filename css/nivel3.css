@@ -1,0 +1,41 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.campo {
+    height: 600px;
+    width: 600px;
+    background-color: rgb(241, 106, 106);
+    margin: auto;
+    border: 8px solid rgb(165, 26, 26);
+}
+.contador {
+    height: 35px;
+    width: 600px;
+    background-color: lightslategray;
+    margin: auto;
+    border: 8px solid rgb(165, 26, 26);
+    border-bottom: none;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.jugador {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(118, 79, 224);
+    border: 4px solid rgb(82, 46, 129);
+    border-radius: 50px;
+    transition: ease .3s;
+}
+
+
+.sigNiv {
+    text-align: center;
+    margin: 20px;
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
