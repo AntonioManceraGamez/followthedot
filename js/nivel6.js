@@ -10,9 +10,9 @@ const crearColor = () => {
 }
 const crearNivel = () => {
 
-  let tiempo = 1;
+  let tiempo = .5;
   let objetivo = 1;
-  while (tiempo / objetivo < 1.5) {
+  while (tiempo / objetivo < .6) {
     tiempo = Math.round(Math.random() * (30 - 5) + 5);
     objetivo = Math.round(Math.random() * (30 - 10) + 10);
   }
