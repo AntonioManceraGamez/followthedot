@@ -1,20 +1,51 @@
+const crearColor = () => {
+  let r = Math.round(Math.random()*255);
+  let g = Math.round(Math.random()*255);
+  let b = Math.round(Math.random()*255);
+  let R = r.toString(16);
+  let G = g.toString(16);
+  let B = b.toString(16);
+  let RGB = "#" + R + G + B;
+  return RGB;
+}
 const crearNivel = () => {
+
   let tiempo = 1;
   let objetivo = 1;
   while (tiempo / objetivo < 1.5) {
-  tiempo = Math.round(Math.random() * (30 - 5) + 5);
-  objetivo = Math.round(Math.random() * (30 - 10) + 10);
+    tiempo = Math.round(Math.random() * (30 - 5) + 5);
+    objetivo = Math.round(Math.random() * (30 - 10) + 10);
   }
-  return  {'tiempo': tiempo, 'objetivo': objetivo};
+  let colorBordeCaja = crearColor();
+  let colorRellenoCaja = crearColor();
+  let colorBordeJugador = crearColor();
+  let colorRellenoJugador = crearColor();
+  return  {
+    'tiempo': tiempo,
+    'objetivo': objetivo,
+    'colorRellenoJugador': colorRellenoJugador,
+    'colorBordeJugador': colorBordeJugador,
+    'colorRellenoCaja': colorRellenoCaja,
+    'colorBordeCaja': colorBordeCaja
+  }
 }
 
-document.querySelector(".sigNiv").addEventListener("onclick", cambiarObjetivoYTiempo)
+document.querySelector(".sigNiv").addEventListener("onclick", cambiarObjetivoTiempoColores)
 
-function cambiarObjetivoYTiempo() {
+function cambiarObjetivoTiempoColores() {
   objetivo = crearNivel()['objetivo'];
   tiempo = crearNivel()['tiempo'];
+  let colorRellenoCaja = crearNivel()['colorRellenoCaja'];
+  let colorBordeCaja = crearNivel()['colorBordeCaja'];
+  let colorRellenoJugador = crearNivel()['colorRellenoJugador'];
+  let colorBordeJugador = crearNivel()['colorBordeJugador'];
+  document.querySelector('.campo').style.backgroundColor = colorRellenoCaja;
+  document.querySelector('.campo').style.borderColor = colorBordeCaja;
+  document.querySelector('.jugador').style.backgroundColor = colorRellenoJugador;
+  document.querySelector('.jugador').style.borderColor = colorBordeJugador;
+  document.querySelector('.contador').style.borderColor = colorBordeCaja;
 }
-cambiarObjetivoYTiempo()
+cambiarObjetivoTiempoColores()
 let puntos = 0;
 let tiempoIni = tiempo;
 const intervalo = setInterval(restarTiempo, 1000);
