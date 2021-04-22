@@ -11,12 +11,12 @@ const moverLadoAbajo = () => {
   document.querySelector('.puntos').innerHTML = 'Puntos: <b>0<b>/<b>' + objetivo + '</b>';
   posicionY = 543;
   if (velocidad < 5) {
-    velocidad = velocidad + 0.1
+    velocidad = velocidad + 0.1;
   }
   document.querySelector('.jugador').style.marginTop = posicionY + 'px';
   rand = Math.round(Math.random()*543);
   document.querySelector('.jugador').style.marginLeft = rand + 'px';
-  document.querySelector('.puntos').innerHTML = 'Puntos: <b>' + puntos + '<b>/<b>' + objetivo + '</b>'
+  document.querySelector('.puntos').innerHTML = 'Puntos: <b>' + puntos + '<b>/<b>' + objetivo + '</b>';
   if (puntos >= objetivo) {
     sonidoGanar.play();
     alert('Has ganado');
@@ -37,8 +37,10 @@ function subirPixel () {
     posicionY = posicionY - velocidad;
   } if (posicionY < 1) {
     sonidoPerder.play();
-    alert('Has perdido');
     puntos = 1;
+    velocidad = 1;
+    document.querySelector('.puntos').innerHTML = 'Puntos: <b>0<b>/<b>' + objetivo + '</b>';
+    alert('Has perdido');
     posicionY = 543;
     document.querySelector('.jugador').style.marginTop = '543px';
   } if (posicionY < 0) {

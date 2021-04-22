@@ -144,8 +144,10 @@ if (juego == 2) {
       posicionY = posicionY - velocidad;
     } if (posicionY < 1) {
       sonidoPerder.play();
+      puntos = 1;
+      velocidad = 1;
+      document.querySelector('.puntos').innerHTML = 'Puntos: <b>0<b>/<b>' + objetivo + '</b>';
       alert('Has perdido');
-      puntos = 0;
       posicionY = 543;
       document.querySelector('.jugador').style.marginTop = '543px';
 
